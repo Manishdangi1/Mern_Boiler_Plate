@@ -37,7 +37,11 @@ app.use('/api/user', userRoutes);
 
 // Health check route
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ message: 'Server is running', timestamp: new Date().toISOString() });
+  res.status(200).json({ 
+    message: 'Server is running', 
+    timestamp: new Date().toISOString(),
+    mongodb: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
+  });
 });
 
 // Error handling middleware
@@ -51,21 +55,37 @@ app.use('*', (req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mern-auth', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => {
-  console.log('Connected to MongoDB');
+// Connect to MongoDB with graceful fallback
+const connectDB = async () => {
+  try {
+    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mern-auth';
+    await mongoose.connect(mongoURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('✅ Connected to MongoDB');
+  } catch (err) {
+    console.warn('⚠️  MongoDB connection failed:', err.message);
+    console.log('💡 Server will start without database connection');
+    console.log('💡 To connect to MongoDB:');
+    console.log('   1. Install MongoDB locally, or');
+    console.log('   2. Use MongoDB Atlas (cloud), or');
+    console.log('   3. Create .env file with MONGODB_URI');
+  }
+};
+
+// Start server
+const startServer = async () => {
+  await connectDB();
+  
   app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`🌐 Health check: http://localhost:${PORT}/api/health`);
+    console.log(`🔗 Frontend: http://localhost:3000`);
   });
-})
-.catch((err) => {
-  console.error('MongoDB connection error:', err);
-  process.exit(1);
-});
+};
+
+startServer().catch(console.error);
 
 module.exports = app;
 
