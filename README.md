@@ -2,7 +2,7 @@
 
 A complete, production-ready authentication system built with the MERN stack (MongoDB, Express.js, React, Node.js).
 
-## 🚀 Features
+##  Features
 
 ### Backend
 - **User Authentication**: Register, login, logout with JWT tokens
@@ -75,7 +75,7 @@ mern-auth-boilerplate/
 └── README.md
 ```
 
-## 🛠️ Installation
+##  Installation
 
 ### Prerequisites
 - Node.js (v16 or higher)
@@ -136,7 +136,7 @@ mern-auth-boilerplate/
 
 The frontend will run on `http://localhost:3000` and automatically proxy API requests to the backend.
 
-## 🔐 API Endpoints
+##  API Endpoints
 
 ### Authentication Routes (`/api/auth`)
 
@@ -163,7 +163,7 @@ The frontend will run on `http://localhost:3000` and automatically proxy API req
 | GET | `/admin/all` | Get all users | Admin |
 | PUT | `/admin/:id/role` | Update user role | Admin |
 
-## 🎨 Frontend Features
+##  Frontend Features
 
 ### Authentication Flow
 - **Login/Register**: Clean, responsive forms with validation
@@ -181,7 +181,7 @@ The frontend will run on `http://localhost:3000` and automatically proxy API req
 - **Form Validation**: Real-time validation with helpful error messages
 - **Password Security**: Secure password change with current password verification
 
-## 🔒 Security Features
+##  Security Features
 
 - **JWT Authentication**: Secure token-based authentication
 - **Password Hashing**: bcrypt with salt rounds
@@ -191,7 +191,7 @@ The frontend will run on `http://localhost:3000` and automatically proxy API req
 - **Helmet.js**: Security headers and protection
 - **Role-based Access**: Admin and user role management
 
-## 🚀 Deployment
+##  Deployment
 
 ### Backend Deployment
 1. Set production environment variables
@@ -204,7 +204,7 @@ The frontend will run on `http://localhost:3000` and automatically proxy API req
 2. Deploy to Vercel, Netlify, or your preferred hosting
 3. Update backend CORS settings with production frontend URL
 
-## 🧪 Testing
+## 🧪Testing
 
 The boilerplate includes testing setup for both frontend and backend:
 
@@ -218,7 +218,7 @@ cd frontend
 npm test
 ```
 
-## 📝 Environment Variables
+##  Environment Variables
 
 ### Backend (.env)
 ```env
@@ -234,7 +234,7 @@ FRONTEND_URL=http://localhost:3000
 - Proxy configuration in `package.json` for development
 - Environment variables can be added as needed
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -242,11 +242,11 @@ FRONTEND_URL=http://localhost:3000
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🆘 Support
+##  Support
 
 If you encounter any issues or have questions:
 
@@ -254,11 +254,11 @@ If you encounter any issues or have questions:
 2. Create a new issue with detailed information
 3. Include your environment details and error logs
 
-## 🔄 Updates
+##  Updates
 
 This boilerplate is actively maintained. Check for updates regularly to get the latest security patches and features.
 
 ---
 
-**Happy Coding! 🎉**
+**Happy Coding! **
 
